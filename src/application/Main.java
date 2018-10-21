@@ -95,7 +95,9 @@ public class Main extends Application implements Runnable {
 					if (balaon == true) {
 						x1 = x;
 						y1 = y;
-						dragon.relocate(Math.random()*1200, Math.random()*700);
+						posx = (int) (Math.random()*1200);
+						posy = (int) (Math.random()*700);
+						dragon.relocate(posx,posy);
 						bala.relocate(x, y);
 						start1();
 						balaon = false;
@@ -151,23 +153,23 @@ public class Main extends Application implements Runnable {
 						while(dirx != posx) {
 							if(posx>dirx) {
 								Thread.sleep(25);
-								posx = posx-5;
+								posx = posx-1;
 								dragon.relocate(posx, posy);
 							}else if(posx<dirx) {
 								Thread.sleep(25);
-								posx = posx+5;
+								posx = posx+1;
 								dragon.relocate(posx, posy);
 							}
 							
 							}while(diry != posy) {
 								if(posy>diry) {
 									Thread.sleep(25);
-									posy = posy-5;
+									posy = posy-1;
 									dragon.relocate(posx, posy);
 									hilo2=null;
 								}else if(posy<diry) {
 									Thread.sleep(25);
-									posy = posy+5;
+									posy = posy+1;
 									dragon.relocate(posx, posy);
 									hilo2=null;
 								}
