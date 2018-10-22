@@ -1,21 +1,30 @@
 package application;
-import javafx.scene.image.ImageView;
+import javafx.application.Application;
+
 
 public class DragonThread extends Thread {
+	int posx = 100;
+	int posy = 100;
+	Main interfaz = new Main();
+	
+	
+	public DragonThread(String msg) {
+		super(msg);
+	}
 	public void run() {
-		int posx = 100;
-		int posy = 100;
-		Main interfaz = new Main();
 		try {
 			while (true) {
 				Thread.sleep(50);
-				interfaz.automove(400, 400);
+				posx = posx-5;
+				interfaz.updateDrake(posx, posy);
 			}	
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 	}
-
+	public static void main(String[] args) {
+		Application.launch(Main.class, args);
+	}
 	
 }

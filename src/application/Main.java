@@ -14,15 +14,17 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application implements Runnable {
-	public ImageView img,bala,dragon,fondo;
+	public ImageView img,bala,fondo;
 	Stage window;
 	Pane root;
-	Thread hilo,ct,hilo2;
+	Image dragonimg = new Image("/Multi/dragon.jpeg");
+	ImageView dragon = new ImageView(dragonimg);
+	Thread hilo,ct,hilo2,dragonmove;
 	int x,x1,posx,dirx;
 	int y,y1,posy,diry;
 	boolean balaon;
-	Image dragonimg;
 	ArrayList<ImageView> dragonlist;
+	String 	a ="Ahora si puerk";
 	public void start(Stage primaryStage) {
 		try {
 			window = primaryStage;
@@ -30,12 +32,10 @@ public class Main extends Application implements Runnable {
 			Scene scene = new Scene(root,400,400);
 			Image grifo = new Image("/Multi/grifo.jpeg");
 			Image b = new Image("/Multi/bala.gif");
-			dragonimg = new Image("/Multi/dragon.jpeg");
 			Image fondoimg = new Image("/Multi/fondo.jpeg");
 			fondo = new ImageView();
 			fondo.setImage(fondoimg);
-			dragon = new ImageView();
-			dragon.setImage(dragonimg);
+
 			bala = new ImageView();
 			bala.setImage(b);
 			bala.setLayoutX(-1000);
@@ -142,7 +142,6 @@ public class Main extends Application implements Runnable {
 							x1 = x1+5;
 							bala.relocate(x1,y1);
 						}
-						System.out.println(ct);
 						hilo.getState();
 						balaon = true;
 						bala.relocate(-100000, -1000000);
@@ -185,15 +184,14 @@ public class Main extends Application implements Runnable {
 		hilo.start();
 	}
 	public void start2() {
-		hilo2 = new Thread(this);
-		hilo2.start();
-//		DragonThread dragonmove = new DragonThread();
-//		dragonmove.start();
+		dragonmove = new DragonThread("First drake");
+		dragonmove.start();
 	}
 	public void updateDrake(int posx, int posy)  {
-		posx = posx-5;
-		dragon.relocate(posx, posy);
+		System.out.println(posx);
+		System.out.println("Hola");
 	}
+	
 	public void dragonspam() {
 			dragon = new ImageView();
 			dragon.setImage(dragonimg);
@@ -203,25 +201,42 @@ public class Main extends Application implements Runnable {
 		
 	}
 	public void automove(int dirx, int diry){
-//		while(dirx != posx) {
-//			if(posx>dirx) {
-//				posx = posx-5;
-//				dragon.relocate(posx, posy);
-//			}else if(posx<dirx) {
-//				posx = posx+5;
-//				dragon.relocate(posx, posy);
-//			}
-//			
-//			}while(diry != posy) {
-//				if(posy>diry) {
-//					posy = posy-5;
-//					dragon.relocate(posx, posy);
-//					hilo2=null;
-//				}else if(posy<diry) {
-//					posy = posy+5;
-//					dragon.relocate(posx, posy);
-//					hilo2=null;
-//				}
-//			}
+		while(dirx != posx) {
+			if(posx>dirx) {
+				posx = posx-5;
+				dragon.relocate(posx, posy);
+			}else if(posx<dirx) {
+				posx = posx+5;
+				dragon.relocate(posx, posy);
+			}
+			
+			}while(diry != posy) {
+				if(posy>diry) {
+					posy = posy-5;
+					dragon.relocate(posx, posy);
+					hilo2=null;
+				}else if(posy<diry) {
+					posy = posy+5;
+					dragon.relocate(posx, posy);
+					hilo2=null;
+				}
+			}
 		}
+
+	public int getPosx() {
+		return posx;
+	}
+
+	public void setPosx(int posx) {
+		this.posx = posx;
+	}
+
+	public String getA() {
+		return a;
+	}
+
+	public void setA(String a) {
+		this.a = a;
+	}
+	
 	}
