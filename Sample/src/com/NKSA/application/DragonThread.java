@@ -1,4 +1,4 @@
-package application;
+package com.NKSA.application;
 import javafx.application.Application;
 
 

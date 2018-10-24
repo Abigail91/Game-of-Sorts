@@ -1,4 +1,4 @@
-package application;
+package com.NKSA.application;
 	
 import java.util.ArrayList;
 
@@ -14,10 +14,11 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application implements Runnable {
+
 	public ImageView img,bala,fondo;
 	Stage window;
 	Pane root;
-	Image dragonimg = new Image("/Multi/dragon.jpeg");
+	Image dragonimg = new Image("/com/NKSA/multi/dragon.jpeg");
 	ImageView dragon = new ImageView(dragonimg);
 	Thread hilo,ct,hilo2,dragonmove;
 	int x,x1,posx,dirx;
@@ -30,9 +31,9 @@ public class Main extends Application implements Runnable {
 			window = primaryStage;
 			root = new Pane();
 			Scene scene = new Scene(root,400,400);
-			Image grifo = new Image("/Multi/grifo.jpeg");
-			Image b = new Image("/Multi/bala.gif");
-			Image fondoimg = new Image("/Multi/fondo.jpeg");
+			Image grifo = new Image("/com/NKSA/multi/grifo.jpeg");
+			Image b = new Image("/com/NKSA/multi/bala.gif");
+			Image fondoimg = new Image("/com/NKSA/multi/fondo.jpeg");
 			fondo = new ImageView();
 			fondo.setImage(fondoimg);
 
