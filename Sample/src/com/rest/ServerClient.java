@@ -11,6 +11,10 @@ public class ServerClient {
 	private static final String GET_URL = "http://localhost:9080/Sample/rest/sample/generar?value=";
 	private static final String USER_AGENT = "Chrome/69.0.3497.100";
 	private static final String sort_URL = "http://localhost:9080/Sample/rest/sample/ordenar?value=";
+	
+ public static void main (String[] args) {
+	 
+ }
 
 	private static void nuevaOleada() throws IOException {
 		URL obj = new URL(GET_URL+ value) ;
