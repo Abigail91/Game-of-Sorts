@@ -16,7 +16,6 @@ public class DragonThread extends Thread {
 			while (true) {
 				Thread.sleep(50);
 				posx = posx-5;
-				interfaz.updateDrake(posx, posy);
 			}	
 		}catch(Exception e) {
 			e.printStackTrace();
